@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-&ux)0%p8(gkm$=sw)5^=9#ywwqf*+((t80*9mprmn$a%*2!&+2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -74,11 +75,19 @@ WSGI_APPLICATION = 'sawari_gari.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME", "sawari_gari_db"),
+        "USER": os.getenv("USER_NAME", "gaurav"),
+        "PASSWORD": os.getenv("PASSWORD", "check"),
+        "HOST": os.getenv(
+            "HOST",
+            "127.0.0.1",
+        ),
+        "PORT": os.getenv("PORT", "5432"),
     }
 }
+
 
 
 # Password validation
