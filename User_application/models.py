@@ -8,9 +8,9 @@ class User_info(models.Model):
         blank=False, null=False, default="00000000", unique=True
     )
     mail = models.EmailField(
-        blank=True, null=False, unique=True, default="user@gmail.com"
+        blank=False, null=False, unique=True, default="user@gmail.com"
     )
-    age = models.ImageField(max_length=3, blank=True, null=True)
+    age = models.IntegerChoices(max_length=3, blank=True, null=True)
 
     class Gender(models.TextChoices):
         MEN = "Men"
