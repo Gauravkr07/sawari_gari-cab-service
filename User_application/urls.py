@@ -4,13 +4,18 @@ from . import views
 
 urlpatterns = [
     re_path(
-        "create/new_user",
+        "register/new_user",
         views.User_view.as_view(),
-        name="Create_user",
+        name="Register_user",
     ),
     re_path(
         "fetch/user/info/",
         views.User_view.as_view(),
         name="fetch any account info",
+    ),
+     re_path(
+        "register/new_user",
+        views.Cab_drivers_view.as_view(),
+        name="Register_user",
     ),
 ]

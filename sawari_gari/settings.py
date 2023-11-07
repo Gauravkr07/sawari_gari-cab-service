@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&ux)0%p8(gkm$=sw)5^=9#ywwqf*+((t80*9mprmn$a%*2!&+2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'User_application'
+    'User_application',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +80,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("DB_NAME", "sawari_gari_db"),
         "USER": os.getenv("USER_NAME", "gaurav"),
-        "PASSWORD": os.getenv("PASSWORD", "check"),
+        "PASSWORD": os.getenv("PASSWORD", "root"),
         "HOST": os.getenv(
             "HOST",
             "127.0.0.1",
