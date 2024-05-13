@@ -107,7 +107,6 @@ celerybeat.pid
 venb/
 vnv/
 *.pem
-*.txt
 env/
 venv/
 ENV/
