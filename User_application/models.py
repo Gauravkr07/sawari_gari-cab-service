@@ -21,6 +21,10 @@ class User_info(models.Model):
     gender = models.CharField(choices=Gender.choices, max_length=20)
     created_time = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=False)
+    password=models.CharField(blank=False,null=False,max_length=50,default='null')
+
+    def __str__(self) -> str:
+        return (f"{self.name}  {self.phone}")
 
 
 class Cab_driver_info(models.Model):
@@ -44,3 +48,7 @@ class Cab_driver_info(models.Model):
     lisence_upload = models.FileField(upload_to="files/", blank=True)
     created_time = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=False)
+    password=models.CharField(blank=False,null=False,default='null')
+
+    def __str__(self) -> str:
+        return (f"{self.name}  {self.phone}")
