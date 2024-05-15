@@ -79,13 +79,13 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("DB_NAME", "sawari_gari_db"),
-        "USER": os.getenv("USER_NAME", "gaurav"),
+        "USER": os.getenv("USER_NAME", "postgres"),
         "PASSWORD": os.getenv("PASSWORD", "root"),
         "HOST": os.getenv(
             "HOST",
             "127.0.0.1",
         ),
-        "PORT": os.getenv("PORT", "5432"),
+        "PORT": os.getenv("PORT", "5433"),
     }
 }
 

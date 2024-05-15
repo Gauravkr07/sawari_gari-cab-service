@@ -14,8 +14,8 @@ urlpatterns = [
         name="fetch any account info",
     ),
     re_path(
-        "register/driver/",
-        views.Cab_drivers_view.as_view(),
-        name="Register_driver",
+        "register/driver/data/",
+        views.Cab_driver_view.as_view(),
+        name="register_cab_driver",
     ),
 ]
