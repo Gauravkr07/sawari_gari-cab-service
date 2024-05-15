@@ -18,4 +18,9 @@ urlpatterns = [
         views.Cab_driver_view.as_view(),
         name="register_cab_driver",
     ),
+    re_path(
+        "fetch/driver/detail",
+        views.Cab_driver_view.as_view(),
+        name="get_driver_phone_mail",
+    ),
 ]

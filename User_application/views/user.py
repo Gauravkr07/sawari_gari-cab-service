@@ -14,7 +14,7 @@ from django.utils.decorators import classonlymethod, method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from User_application.models import User_info
+from User_application.models import Customer_info
 
 class User_view(View):
     @classonlymethod
@@ -58,7 +58,7 @@ class User_view(View):
             if len(user_details["phone"]) != 10:
                 raise Exception("Phone number is not valid")
             user_data = await sync_to_async(
-                lambda: User_info.objects.create(**user_details)
+                lambda: Customer_info.objects.create(**user_details)
             )()
 
             return JsonResponse(
@@ -84,7 +84,7 @@ class User_view(View):
             data = {"mail": mail}
         try:
             check_user_account = await sync_to_async(
-                lambda: User_info.objects.get(**data)
+                lambda: Customer_info.objects.get(**data)
             )()
             data = {
                 "name": check_user_account.name,
@@ -99,7 +99,7 @@ class User_view(View):
             result = json.loads(data)
 
             return JsonResponse({"Response": result}, safe=False, status=200)
-        except User_info.DoesNotExist:
+        except Customer_info.DoesNotExist:
             return JsonResponse(
                 {"Error": "User not found! enter correct mail or phone number"},
                 status=404,
@@ -112,6 +112,6 @@ class User_view(View):
 
     #     objects_per_page = 50
     #     total_count = all_objects.count()
-    #     all_objects = User_info.objects.all()
+    #     all_objects = Customer_info.objects.all()
     #     pritn()
     #     paginator = Paginator(all_objects, objects_per_page)

@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Customer_info(models.Model):
-    id = models.CharField(primary_key=True, editable=False,blank=False,null=False)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, blank=False, null=False, default="user")
     phone = models.CharField(
         max_length=15, blank=False, null=False, default="111111", unique=True
@@ -31,7 +31,7 @@ class Customer_info(models.Model):
 
 
 class Cab_driver_info(models.Model):
-    _id = models.CharField(primary_key=True,editable=False,blank=False,null=False,default='null')
+    _id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, blank=False, null=False, default="user")
     phone = models.CharField(
         max_length=15, blank=False, null=False, default="111111", unique=True
@@ -60,7 +60,7 @@ class Cab_driver_info(models.Model):
 
 
 class Ride_booking(models.Model):
-    _idd = models.CharField(primary_key=True, editable=False,blank=False,null=False,default='null')
+    _idd = models.AutoField(primary_key=True)
     customer_id = models.CharField(blank=False, null=False, max_length=50)
     driver_id = models.CharField(blank=False, null=False, max_length=50)
     source = models.CharField(blank=False, null=False, max_length=200)
